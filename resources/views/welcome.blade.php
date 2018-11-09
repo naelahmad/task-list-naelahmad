@@ -40,29 +40,10 @@
 
 <body id="app-layout">
 
-    <nav class="navbar navbar-default">
-
+ @section('master')
         <div class="container">
-
-            <div class="navbar-header">
-
-
-
-                <!-- Branding Image -->
-
-                <a class="navbar-brand" href="#">
-
-                    Task List
-
-                </a>
-
-            </div>
-
-
-
+            @yield('content')
         </div>
-
-    </nav>
 
 
 
@@ -85,6 +66,15 @@ any form should have csrf_field()
                 <div class="panel-body">
 
                     <!-- Display Validation Errors -->
+                     @if (count($errors)>0)
+                    <div class="alert alert-danger">
+                     <ul>
+                    @foreach ($errors->all() as $error)
+                     <li>{{ $error }}</li>
+                     @endforeach
+                    </ul>
+                    </div>
+                    @endif
 
                     <!-- New Task Form -->
 
@@ -122,6 +112,8 @@ any form should have csrf_field()
                     </form>
                 </div>
             </div>
+
+            @if (count($tasks)>0)
             <!-- Current Tasks -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -155,6 +147,7 @@ any form should have csrf_field()
                             </tbody>
                         </table>
                     </div>
+                    @endif
                 </div>
         </div>
 </div>
