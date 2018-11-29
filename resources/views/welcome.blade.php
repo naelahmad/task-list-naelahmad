@@ -21,21 +21,7 @@
 
     <!-- Styles -->
 
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <style>
 
-        body {
-            font-family: 'Lato';
-            font-size:2em;
-        }
-        .fa-btn {
-            margin-right: 6px;
-        }
-        }
-        .fa-btn {
-            margin-right: 6px;
-        }
-    </style>
 </head>
 
 <body id="app-layout">
@@ -46,7 +32,8 @@
         </div>
 
 
-
+@extends ('layouts.app')
+@section('content')
     <div class="container">
 
         <div class="col-sm-offset-2 col-sm-8">
@@ -66,15 +53,6 @@ any form should have csrf_field()
                 <div class="panel-body">
 
                     <!-- Display Validation Errors -->
-                     @if (count($errors)>0)
-                    <div class="alert alert-danger">
-                     <ul>
-                    @foreach ($errors->all() as $error)
-                     <li>{{ $error }}</li>
-                     @endforeach
-                    </ul>
-                    </div>
-                    @endif
 
                     <!-- New Task Form -->
 
@@ -113,7 +91,8 @@ any form should have csrf_field()
                 </div>
             </div>
 
-            @if (count($tasks)>0)
+
+            
             <!-- Current Tasks -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -147,18 +126,7 @@ any form should have csrf_field()
                             </tbody>
                         </table>
                     </div>
-                    @endif
                 </div>
         </div>
 </div>
-
-    <!-- JavaScripts -->
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-</body>
-
-</html>
+@endsection

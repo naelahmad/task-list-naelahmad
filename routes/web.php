@@ -1,6 +1,5 @@
 <?php
 use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,9 +10,8 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', 'TaskController@index') ;
-
 Route::post('tasks','TaskController@store');
-
 Route::delete('tasks/{id}','TaskController@destroy');
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
